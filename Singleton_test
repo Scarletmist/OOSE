@@ -1,0 +1,27 @@
+#import java.util.*;
+
+public class Singleton_test{
+  public static void main(String[] args){
+    Lazy_Singleton lS=Lazy_Singleton.getInstance();
+    Eager_Singleton eS=Eager_Singleton.getInstance();
+    lS.print();
+    eS.print();
+  }
+}
+
+class Lazy_Singleton{
+  static Lazy_Singleton instance=null;
+  private Lazy_Singleton();
+  public static Lazy_Singleton getInstance(){
+    if(instance==null)
+      instance=new Lazy_Singleton();
+    return instance;
+  }
+  public void print(){System.out.println("This is Lazy one.");}
+}
+class Eager_Singleton{
+  static Eager_Singleton instance=new Eager_Singleton();
+  private Eager_Singleton();
+  public static getInstance(){return instance;}
+  public void print(){System.out.println("This is Eager one.");}
+}
