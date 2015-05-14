@@ -1,0 +1,49 @@
+import java.util.*;
+
+public class Main{
+  public static void main(String[] args){
+    Facade computer=new Facade();
+    computer.start();
+    computer.close();
+  }
+}
+
+class Facade{
+	CPU cpu=new CPU();
+	Disk disk=new Disk();
+	Screen screen=new Screen();
+	public void start(){
+		cpu.open();
+		disk.open();
+		screen.open();
+	}
+	public void close(){
+		screen.close();
+		disk.close();
+		cpu.close();
+	}
+}
+class CPU{
+	public void open(){
+		System.out.println("CPU run.");
+	}
+	public void close(){
+		System.out.println("CPU stop.");
+	}
+}
+class Disk{
+	public void open(){
+		System.out.println("Disk run.");
+	}
+	public void close(){
+		System.out.println("Disk stop.");
+	}
+}
+class Screen{
+	public void open(){
+		System.out.println("Screen show.");
+	}
+	public void close(){
+		System.out.println("Sceen closed.");
+	}
+}
